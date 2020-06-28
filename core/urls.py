@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import HomeTemplateView
+from .views import home, project_detail
+
+app_name = "core"
 
 urlpatterns = [
-    path("", HomeTemplateView.as_view(), name="core-index")
+    path("", home, name="home"),
+    path("project/<slug:slug>/", project_detail, name="project"),
 ]

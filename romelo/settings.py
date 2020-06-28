@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG_VALUE") == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = ["romelotech.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "romelotech.herokuapp.com"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core.apps.CoreConfig",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -118,4 +119,8 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
+
+# CrispyForms
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+

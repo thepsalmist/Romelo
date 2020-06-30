@@ -16,7 +16,7 @@ class Service(models.Model):
     description = models.TextField(verbose_name="About Service")
 
     def __str__(self):
-        return self.name
+        return self.service_name
 
 
 class Project(models.Model):
@@ -51,7 +51,7 @@ class Team(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
-    profile_pic = models.ImageField(upload_to="Team", blank=True, null=True)
+    profile_pic = models.ImageField(upload_to="Team", default="", blank=True, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}| {self.position}"

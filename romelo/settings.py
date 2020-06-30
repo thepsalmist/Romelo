@@ -26,7 +26,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "romelotech.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "209.97.140.84"]
 
 
 # Application definition
